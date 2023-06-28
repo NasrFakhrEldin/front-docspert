@@ -45,7 +45,7 @@ const BookList = () => {
                         {/* <img src={book.coverImageUrl} className="card-img-top" alt={book.title} /> */}
                         <div className="card-body">
                             <h5 className="card-title">{book.title}</h5>
-                            <p className="card-text">By: {book.author.username}</p>
+                            <p className="card-text">Author: {book.author.username}</p>
                             <p className="card-text">Date: {book.publication_date}</p>
                             <p className="card-text">Price: {book.price}</p>
                             <Link to={`/books/${book.id}`} className="btn btn-primary">

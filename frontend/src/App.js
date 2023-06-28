@@ -2,14 +2,21 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import BookList from './components/BookList';
 import BookDetail from './components/BookDetails';
-
+import NavBar from './components/NavBar';
+import Login from './components/Login';
+import CreateBook from './components/CreateBook';
 const App = () => {
   return (
     <Router>
+      <NavBar />
+      <div className="container mt-4">
       <Routes>
         <Route path="/" element={<BookList/>} />
         <Route path="/books/:id" element={<BookDetail/>} />
+        <Route path="/create-book" element={<CreateBook/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
+      </div>
     </Router>
   );
 };
