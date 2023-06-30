@@ -94,7 +94,6 @@ export const getUserInfo = () => {
       return {
         username: decodedToken.username,
         id: decodedToken.user_id,
-        // image: decodedToken.image,
       };
     }
   }

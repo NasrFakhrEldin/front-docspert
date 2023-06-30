@@ -23,9 +23,6 @@ const NavBar = () => {
             <li className="nav-item">
               <Link to="/create-book" className="nav-link">Create Book</Link>
             </li>
-            {/* <li className="nav-item">
-              <button className="nav-link btn btn-link" onClick={handleLogout}>Logout</button>
-            </li> */}
           </ul>
         </div>
 
@@ -33,12 +30,12 @@ const NavBar = () => {
             <ul className="navbar-nav ml-auto">
             { isAuthenticated() && user ? (
               <>
+              <li className="nav-item">
+                <Link to="/mine" className="nav-link">My Books</Link>
+              </li>
                 <li className="nav-item">
                     <span className="nav-link">Welcome, {user.username}</span>
                 </li>
-                {/* <li className="nav-item">
-                    <img src={user.image} alt="User Avatar" className="avatar mr-3" />
-                </li> */}
                 <li className="nav-item">
                     <button className="nav-link" onClick={handleLogout}>Logout</button>
                 </li>

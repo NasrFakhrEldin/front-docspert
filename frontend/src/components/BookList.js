@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom'
 import { getBooks } from '../utils/api';
-import BookDetails from './BookDetails';
 import Pagination from './Pagination';
+import BookCard from './BookCard';
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [hasNextPage, setHasNextPage] = useState(false);
   const [hasPrevPage, setHasPrevPage] = useState(false);
-  const [selectedBook, setSelectedBook] = useState(null);
+  const [selectedBook] = useState(null);
 
 
   useEffect(() => {
@@ -32,34 +31,15 @@ const BookList = () => {
   };
 
   return (
-    <div className="container mt-4">
-    <h1 className="mb-4">Book List</h1>
-        <div className="row">
-            {books.map((book) => (
-                <div key={book.id} className="col-lg-6 mb-4">
-                    <div className="card">
-                        {/* <img src={book.coverImageUrl} className="card-img-top" alt={book.title} /> */}
-                        <div className="card-body">
-                            <h5 className="card-title">{book.title}</h5>
-                            <p className="card-text">Author: {book.author.username}</p>
-                            <p className="card-text">Date: {book.publication_date}</p>
-                            <p className="card-text">Price: {book.price}</p>
-                            <Link to={`/books/${book.id}`} className="btn btn-primary">
-                            View Details
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            ))}
-        </div>
-      {selectedBook && <BookDetails book={selectedBook} />}
+    <>
+      <BookCard books={books} selectedBook={selectedBook}/>
       <Pagination
         currentPage={currentPage}
         hasNextPage={hasNextPage}
         hasPrevPage={hasPrevPage}
         onPageChange={handlePageChange}
       />
-    </div>
+    </>
   );
 };
 

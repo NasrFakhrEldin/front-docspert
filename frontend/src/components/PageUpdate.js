@@ -22,7 +22,6 @@ const PageUpdateForm = ({ book, onCancel }) => {
       await updatePage(book.pages.results[0].id, formData);
       window.location.reload();
     } catch (error) {
-      // Handle error
     }
   };
 
