@@ -31,8 +31,8 @@ const NavBar = () => {
 
         <div className='nav justify-content-end'>
             <ul className="navbar-nav ml-auto">
-            {isAuthenticated() ? (
-                <>
+            { isAuthenticated() && user ? (
+              <>
                 <li className="nav-item">
                     <span className="nav-link">Welcome, {user.username}</span>
                 </li>
@@ -42,13 +42,13 @@ const NavBar = () => {
                 <li className="nav-item">
                     <button className="nav-link" onClick={handleLogout}>Logout</button>
                 </li>
-                </>
+              </>
             ) : (
-                <>
+              <>
                 <li className="nav-item">
                     <Link className="nav-link" to="/login">Login</Link>
                 </li>
-                </>
+              </>
             )}
             </ul>
         </div>

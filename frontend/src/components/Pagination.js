@@ -10,25 +10,23 @@ const Pagination = ({ currentPage, hasNextPage, hasPrevPage, onPageChange }) => 
   };
 
   return (
-    <div className="pagination-container">
-      <nav aria-label="Pagination">
-        <ul className="pagination justify-content-center">
-          <li className={`page-item ${!hasPrevPage ? 'disabled' : ''}`}>
-            <button className="page-link" onClick={handlePrevPage} disabled={!hasPrevPage}>
-              Previous
-            </button>
-          </li>
-          <li className="page-item">
-            <span className="page-link">{`Page ${currentPage}`}</span>
-          </li>
-          <li className={`page-item ${!hasNextPage ? 'disabled' : ''}`}>
-            <button className="page-link" onClick={handleNextPage} disabled={!hasNextPage}>
-              Next
-            </button>
-          </li>
-        </ul>
-      </nav>
-    </div>``
+    <nav aria-label="Pagination">
+      <ul className="pagination justify-content-center">
+        <li className={`page-item ${!hasPrevPage ? 'disabled' : ''}`}>
+          <button className="page-link" onClick={handlePrevPage} disabled={!hasPrevPage}>
+            Previous
+          </button>
+        </li>
+        <li className="page-item">
+          <span className="page-link">{`Page ${currentPage}`}</span>
+        </li>
+        <li className={`page-item ${!hasNextPage ? 'disabled' : ''}`}>
+          <button className="page-link" onClick={handleNextPage} disabled={!hasNextPage}>
+            Next
+          </button>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

@@ -12,9 +12,13 @@ const CreateBook = () => {
   const history = useNavigate();
 
   useEffect(() => {
-    if (!isAuthenticated()) {
-      history('/login');
-    }
+    const checkAuthentication = async () => {
+      if (!(await isAuthenticated())) {
+        history('/login');
+      }
+    };
+
+    checkAuthentication();
   }, [history]);
 
   const handleCreateBook = async (e) => {
@@ -30,7 +34,7 @@ const CreateBook = () => {
       setPublicationDate('');
       setPrice('');
     } catch (error) {
-      console.error('Failed to create book:', error.response.data);
+      console.error('Failed to create book:', error.response);
       toast.error('Please enter valid data.');
     }
   };

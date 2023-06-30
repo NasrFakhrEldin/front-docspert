@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom'
 import { getBooks } from '../utils/api';
 import BookDetails from './BookDetails';
 import Pagination from './Pagination';
-// import { API_BASE_URL } from '../utils/api';
 
 const BookList = () => {
   const [books, setBooks] = useState([]);
@@ -13,9 +12,6 @@ const BookList = () => {
   const [selectedBook, setSelectedBook] = useState(null);
 
 
-  const handleDetailClick = (bookId) => {
-    console.log(`Clicked book ID: ${bookId}`);
-  };
   useEffect(() => {
     const fetchBooks = async () => {
       try {
